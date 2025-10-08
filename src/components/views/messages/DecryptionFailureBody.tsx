@@ -18,8 +18,20 @@ import { LocalDeviceVerificationStateContext } from "../../../contexts/LocalDevi
 
 function getErrorMessage(mxEvent: MatrixEvent, isVerified: boolean | undefined): string | JSX.Element {
     switch (mxEvent.decryptionFailureReason) {
-        case DecryptionFailureCode.MEGOLM_KEY_WITHHELD_FOR_UNVERIFIED_DEVICE:
-            return _t("timeline|decryption_failure|blocked");
+        case DecryptionFailureCode.MEGOLM_KEY_WITHHELD_UNVERIFIED:
+            return _t("timeline|decryption_failure|key_withheld_unverified");
+
+        case DecryptionFailureCode.MEGOLM_KEY_WITHHELD_BLACKLISTED:
+            return _t("timeline|decryption_failure|key_withheld_blacklisted");
+
+        case DecryptionFailureCode.MEGOLM_KEY_WITHHELD_UNAUTHORISED:
+            return _t("timeline|decryption_failure|key_withheld_unauthorised");
+
+        case DecryptionFailureCode.MEGOLM_KEY_WITHHELD_UNAVAILABLE:
+            return _t("timeline|decryption_failure|key_withheld_unavailable");
+
+        case DecryptionFailureCode.MEGOLM_KEY_WITHHELD_UNKNOWN:
+            return _t("timeline|decryption_failure|key_withheld_unknown");
 
         case DecryptionFailureCode.HISTORICAL_MESSAGE_NO_KEY_BACKUP:
             return _t("timeline|decryption_failure|historical_event_no_key_backup");
