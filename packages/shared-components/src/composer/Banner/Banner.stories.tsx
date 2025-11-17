@@ -9,17 +9,17 @@ import React from "react";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 
-import { StatusBanner } from "./StatusBanner";
+import { Banner } from "./Banner";
 
 const meta = {
-    title: "room/StatusBanner",
-    component: StatusBanner,
+    title: "room/Banner",
+    component: Banner,
     tags: ["autodocs"],
     args: {
         children: <p>Hello! This is a status banner.</p>,
         onClose: fn(),
     },
-} satisfies Meta<typeof StatusBanner>;
+} satisfies Meta<typeof Banner>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

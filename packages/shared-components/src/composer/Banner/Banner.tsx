@@ -9,10 +9,10 @@ import classNames from "classnames";
 import React, { type MouseEventHandler, type ReactElement, type ReactNode, type PropsWithChildren } from "react";
 import { Button } from "@vector-im/compound-web";
 
-import styles from "./StatusBanner.module.css";
+import styles from "./Banner.module.css";
 import { _t } from "../../utils/i18n";
 
-interface StatusBannerProps {
+interface BannerProps {
     className?: string;
     /**
      * The type of the status banner.
@@ -36,14 +36,14 @@ interface StatusBannerProps {
  *   <StatusBar  onClose={onCloseHandler} />
  * ```
  */
-export function StatusBanner({
+export function Banner({
     type,
     children,
     className,
     actions,
     onClose,
     ...props
-}: PropsWithChildren<StatusBannerProps>): ReactElement {
+}: PropsWithChildren<BannerProps>): ReactElement {
     const classes = classNames(styles.banner, className);
 
     return (

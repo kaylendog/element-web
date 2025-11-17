@@ -14,7 +14,6 @@
     gap: var(--cpd-space-3x);
     padding: var(--cpd-space-4x);
 
-    background-color: var(--cpd-color-grey-200);
     border-top: 1px solid var(--cpd-color-gray-400);
 }
 
