@@ -14,7 +14,7 @@ Please see LICENSE files in the repository root for full details.
     /* fixed line height to prevent emoji from being taller than text */
     line-height: $font-18px;
     justify-content: center;
-    margin-right: 6px;
+    margin-right: 12px;
     /* don't grow wider than available space */
     min-width: 0;
 
@@ -29,7 +29,8 @@ Please see LICENSE files in the repository root for full details.
         min-height: 55px;
 
         .mx_BasicMessageComposer_input {
-            padding: 3px 0;
+            /* readability with border */
+            padding: 16px 0;
             /* this will center the contenteditable */
             /* in it's parent vertically */
             /* while keeping the autocomplete at the top */
