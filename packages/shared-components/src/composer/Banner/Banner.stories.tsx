@@ -10,6 +10,8 @@ import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 
 import { Banner } from "./Banner";
+import { Button } from "@vector-im/compound-web";
+import { _t } from "../../utils/i18n";
 
 const meta = {
     title: "room/Banner",
@@ -30,8 +32,30 @@ export const Info: Story = {
         type: "info",
     },
 };
+export const Success: Story = {
+    args: {
+        type: "success",
+    },
+};
 export const Critical: Story = {
     args: {
         type: "critical",
+    },
+};
+export const WithAction: Story = {
+    args: {
+        children: (
+            <p>
+                {_t(
+                    "encryption|pinned_identity_changed",
+                    { displayName: "Alice", userId: "@alice:example.org" },
+                    {
+                        a: (sub) => <a>{sub}</a>,
+                        b: (sub) => <b>{sub}</b>,
+                    },
+                )}
+            </p>
+        ),
+        actions: <Button kind="primary">{_t("encryption|withdraw_verification_action")}</Button>,
     },
 };
