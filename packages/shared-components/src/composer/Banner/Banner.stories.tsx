@@ -6,11 +6,11 @@
  */
 
 import React from "react";
-import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { Button } from "@vector-im/compound-web";
 
 import { Banner } from "./Banner";
-import { Button } from "@vector-im/compound-web";
 import { _t } from "../../utils/i18n";
 
 const meta = {
@@ -50,12 +50,18 @@ export const WithAction: Story = {
                     "encryption|pinned_identity_changed",
                     { displayName: "Alice", userId: "@alice:example.org" },
                     {
-                        a: (sub) => <a>{sub}</a>,
+                        a: (sub) => <a href="https://example.org">{sub}</a>,
                         b: (sub) => <b>{sub}</b>,
                     },
                 )}
             </p>
         ),
         actions: <Button kind="primary">{_t("encryption|withdraw_verification_action")}</Button>,
+    },
+};
+
+export const WithAvatarImage: Story = {
+    args: {
+        avatar: <img alt="Example" src="https://picsum.photos/32/32" />,
     },
 };

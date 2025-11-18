@@ -75,7 +75,7 @@ export function Banner({
             default:
                 return <InfoIcon fontSize={24} {...props} />;
         }
-    }, [type]);
+    }, [type, props]);
 
     return (
         <div {...props} className={classes} data-type={type}>

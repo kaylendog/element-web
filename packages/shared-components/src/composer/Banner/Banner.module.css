@@ -51,7 +51,23 @@
 }
 
 .icon {
-    padding: 4px;
+    /* lock icon dimensions */
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+
+    margin: 4px;
+
+    /* centre svg icons, as they are not full width */
+    flex: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon img {
+    border-radius: 50%;
 }
 
 .actions {
