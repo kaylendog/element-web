@@ -45,11 +45,11 @@ interface BannerProps {
 }
 
 /**
- * A component to alert that history is shared to new members of the room.
+ * A banner component used for displaying user-facing information above the message composer.
  *
  * @example
  * ```tsx
- *   <StatusBar  onClose={onCloseHandler} />
+ *   <Banner  onClose={onCloseHandler} />
  * ```
  */
 export function Banner({
