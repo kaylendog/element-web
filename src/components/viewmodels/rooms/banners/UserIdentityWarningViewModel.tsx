@@ -11,8 +11,8 @@ import { type CryptoApi, CryptoEvent } from "matrix-js-sdk/src/crypto-api";
 import { throttle } from "lodash";
 import { logger } from "matrix-js-sdk/src/logger";
 
-import { useMatrixClientContext } from "../../../contexts/MatrixClientContext.tsx";
-import { useTypedEventEmitter } from "../../../hooks/useEventEmitter.ts";
+import { useMatrixClientContext } from "../../../../contexts/MatrixClientContext.tsx";
+import { useTypedEventEmitter } from "../../../../hooks/useEventEmitter.ts";
 
 export type ViolationType = "PinViolation" | "VerificationViolation";
 

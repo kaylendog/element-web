@@ -31,7 +31,7 @@ import E2EIcon from "./E2EIcon";
 import SettingsStore from "../../../settings/SettingsStore";
 import { aboveLeftOf, type MenuProps } from "../../structures/ContextMenu";
 import ReplyPreview from "./ReplyPreview";
-import { UserIdentityWarning } from "./UserIdentityWarning";
+import { UserIdentityWarning } from "./banners/UserIdentityWarning";
 import { UPDATE_EVENT } from "../../../stores/AsyncStore";
 import VoiceRecordComposerTile from "./VoiceRecordComposerTile";
 import { VoiceRecordingStore } from "../../../stores/VoiceRecordingStore";

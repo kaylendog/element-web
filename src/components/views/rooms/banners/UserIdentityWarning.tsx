@@ -10,13 +10,13 @@ import { type Room, type RoomMember } from "matrix-js-sdk/src/matrix";
 import { Button, Separator } from "@vector-im/compound-web";
 import classNames from "classnames";
 
-import { _t } from "../../../languageHandler";
-import MemberAvatar from "../avatars/MemberAvatar";
+import { _t } from "../../../../languageHandler";
+import MemberAvatar from "../../avatars/MemberAvatar";
 import {
     useUserIdentityWarningViewModel,
     type ViolationPrompt,
-} from "../../viewmodels/rooms/UserIdentityWarningViewModel.tsx";
-import { type ButtonEvent } from "../elements/AccessibleButton.tsx";
+} from "../../../viewmodels/rooms/banners/UserIdentityWarningViewModel.tsx";
+import { type ButtonEvent } from "../../elements/AccessibleButton.tsx";
 
 interface UserIdentityWarningProps {
     /**
