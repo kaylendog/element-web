@@ -5,17 +5,17 @@ SPDX-License-Identifier: AGPL-3.0-only OR GPL-3.0-only OR LicenseRef-Element-Com
 Please see LICENSE files in the repository root for full details.
 */
 
-import React from "react";
+import { Button } from "@vector-im/compound-web";
+import { Banner } from "@element-hq/web-shared-components";
 import { type Room, type RoomMember } from "matrix-js-sdk/src/matrix";
-import { Button, Separator } from "@vector-im/compound-web";
-import classNames from "classnames";
+import React from "react";
 
 import { _t } from "../../../../languageHandler";
-import MemberAvatar from "../../avatars/MemberAvatar";
 import {
     useUserIdentityWarningViewModel,
     type ViolationPrompt,
 } from "../../../viewmodels/rooms/banners/UserIdentityWarningViewModel.tsx";
+import MemberAvatar from "../../avatars/MemberAvatar";
 import { type ButtonEvent } from "../../elements/AccessibleButton.tsx";
 
 interface UserIdentityWarningProps {
@@ -51,12 +51,19 @@ export const UserIdentityWarning: React.FC<UserIdentityWarningProps> = ({ room }
             dispatchAction({ type: "PinUserIdentity", userId: currentPrompt.member.userId });
         }
     };
-    return warningBanner(
-        currentPrompt.type === "VerificationViolation",
-        memberAvatar(currentPrompt.member),
-        title,
-        action,
-        onButtonClick,
+
+    return (
+        <Banner
+            type={currentPrompt.type === "VerificationViolation" ? "critical" : "info"}
+            avatar={memberAvatar(currentPrompt.member)}
+            actions={
+                <Button kind="secondary" size="sm" onClick={onButtonClick}>
+                    {action}
+                </Button>
+            }
+        >
+            {title}
+        </Banner>
     );
 };
 
@@ -109,26 +116,6 @@ function getTitleAndAction(prompt: ViolationPrompt): [title: React.ReactNode, ac
     return [title, action];
 }
 
-function warningBanner(
-    isCritical: boolean,
-    avatar: React.ReactNode,
-    title: React.ReactNode,
-    action: string,
-    onButtonClick: (ev: ButtonEvent) => void,
-): React.ReactNode {
-    return (
-        <div className={classNames("mx_UserIdentityWarning", { critical: isCritical })}>
-            <Separator />
-            <div className="mx_UserIdentityWarning_row">
-                {avatar}
-                <span className={classNames("mx_UserIdentityWarning_main", { critical: isCritical })}>{title}</span>
-                <Button kind="secondary" size="sm" onClick={onButtonClick}>
-                    {action}
-                </Button>
-            </div>
-        </div>
-    );
-}
 function memberAvatar(member: RoomMember): React.ReactNode {
     return <MemberAvatar member={member} title={member.userId} size="30px" />;
 }
