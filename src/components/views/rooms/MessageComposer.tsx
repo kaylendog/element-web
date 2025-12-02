@@ -666,8 +666,8 @@ export class MessageComposer extends React.Component<IProps, IState> {
         return (
             <Tooltip open={isTooltipOpen} description={formatTimeLeft(secondsLeft)} placement="bottom">
                 <div className={classes} ref={this.ref} role="region" aria-label={_t("a11y|message_composer")}>
+                    <UserIdentityWarning room={this.props.room} key={this.props.room.roomId} />
                     <div className="mx_MessageComposer_wrapper">
-                        <UserIdentityWarning room={this.props.room} key={this.props.room.roomId} />
                         <ReplyPreview
                             replyToEvent={this.props.replyToEvent}
                             permalinkCreator={this.props.permalinkCreator}
